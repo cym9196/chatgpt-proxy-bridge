@@ -92,3 +92,6 @@ try {
     if (@(Get-ChildItem -LiteralPath $sandbox -Force).Count -eq 0) { Remove-Item -LiteralPath $sandbox }
 }
 Write-Host ('All {0} checks passed. No real application was launched.' -f $script:checks)
+# The negative installer test intentionally returns 1. Do not let that stale native
+# exit code make GitHub's PowerShell wrapper report a failure after all assertions pass.
+exit 0
