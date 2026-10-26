@@ -1,0 +1,13 @@
+# Machine-specific settings, reports and personal proxy configurations
+settings.json
+installation.json
+*.log
+*.zip
+*.tmp
+*.local.*
+diagnostics*.json
+.env
+.env.*
+__pycache__/
+.DS_Store
+Thumbs.db
