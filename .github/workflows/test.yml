@@ -6,13 +6,19 @@ on:
 permissions:
   contents: read
 jobs:
-  test:
+  windows-powershell:
+    name: Windows PowerShell 5.1
     runs-on: windows-latest
-    strategy:
-      matrix:
-        shell: [powershell, pwsh]
     steps:
       - uses: actions/checkout@v4
       - name: Test parsing, proxy isolation and install lifecycle
-        shell: ${{ matrix.shell }}
+        shell: powershell
+        run: ./tests/Run-Tests.ps1
+  powershell-7:
+    name: PowerShell 7
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test parsing, proxy isolation and install lifecycle
+        shell: pwsh
         run: ./tests/Run-Tests.ps1
